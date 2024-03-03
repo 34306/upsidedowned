@@ -1,0 +1,9 @@
+Package: com.34306.upsidedowned
+Name: upsidedowned
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Rotate left, right, up side down your iPhone. I take the code from TrollPad by @TranKha50277352
+Maintainer: Little 34306
+Author: 34306, KhanhDuyTran
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 15.0)
