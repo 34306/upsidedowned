@@ -32,15 +32,24 @@ static uint16_t forcePadIdiom = 0;
 - (NSInteger)homeScreenRotationStyle {
     return 1;
 }
-
-// Allow upside down Home Screen, but didn't work:(
-- (BOOL)supportsPortraitUpsideDownOrientation {
-    return YES;
-}
 %end
 
 %hook SBApplication
 - (BOOL)isMedusaCapable {
     return YES;
+}
+%end
+
+// Allow upside down Home Screen
+%hook SBHomeScreenViewController
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return %orig | UIInterfaceOrientationMaskPortraitUpsideDown;
+}
+%end
+
+// Allow upside down Lock Screen
+%hook SBCoverSheetPrimarySlidingViewController
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return %orig | UIInterfaceOrientationMaskPortraitUpsideDown;
 }
 %end
